@@ -883,7 +883,7 @@ int main(int argc, char * argv[])
       std::map<std::string, std::string> current_ros1_publishers;
       std::map<std::string, std::string> current_ros1_subscribers;
       for (auto topic : topics) {
-        std::cout << "read to master topic: "<<topic<<std::endl;
+        // std::cout << "read to master topic: "<<topic<<std::endl;
         auto topic_name = topic.name;
         bool has_publisher = active_publishers.find(topic_name) != active_publishers.end();
         bool has_subscriber = active_subscribers.find(topic_name) != active_subscribers.end();
