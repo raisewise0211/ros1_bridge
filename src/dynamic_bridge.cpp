@@ -765,11 +765,11 @@ void get_active_ros2_actions(
 
 int main(int argc, char * argv[])
 {
-  bool output_topic_introspection;
+  bool output_topic_introspection =1;
   bool bridge_all_1to2_topics;
   bool bridge_all_2to1_topics;
   if (!parse_command_options(
-      argc, argv, 1, bridge_all_1to2_topics, bridge_all_2to1_topics))
+      argc, argv, output_topic_introspection, bridge_all_1to2_topics, bridge_all_2to1_topics))
   {
     return 0;
   }
