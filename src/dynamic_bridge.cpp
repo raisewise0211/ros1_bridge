@@ -829,17 +829,20 @@ int main(int argc, char * argv[])
       // check publishers
       if (payload.size() >= 1) {
         for (int j = 0; j < payload[0].size(); ++j) {
+          std::cout<<"check publishers topic_name "<<topic_name<<std::endl;
           std::string topic_name = payload[0][j][0];
           for (int k = 0; k < payload[0][j][1].size(); ++k) {
             std::string node_name = payload[0][j][1][k];
             // ignore publishers from the bridge itself
+            std::cout<<"check publishers node_name "<<node_name<<"ros::this_node::getName()"<<ros::this_node::getName()<<std::endl;
             if (node_name == ros::this_node::getName()) {
               continue;
             }
             active_publishers.insert(topic_name);
+            std::cout<<"check publishers active_publishers topic_name "<<topic_name<<std::endl;
+
             break;
           }
-        }
       }
       // check subscribers
       if (payload.size() >= 2) {
@@ -847,11 +850,11 @@ int main(int argc, char * argv[])
           std::string topic_name = payload[1][j][0];
           for (int k = 0; k < payload[1][j][1].size(); ++k) {
             std::string node_name = payload[1][j][1][k];
-            // ignore subscribers from the bridge itself
+            // ignore sbscribers from the bridge itself
             if (node_name == ros::this_node::getName()) {
               continue;
             }
-            active_subscribers.insert(topic_name);
+            active_subscruibers.insert(topic_name);
             break;
           }
         }
